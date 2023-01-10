@@ -8,8 +8,8 @@
 #include "multi_agent_instances/instance1.lp".
 %#include "multi_agent_instances/instance2.lp".
 
-% CONSTRAINTS:
-% we forbid edge and vertex conflicts (agents can't move to the same cell)
+% CONFLICTS:
+% we forbid edge, vertex and swapping conflicts
 
 % Makespan is equal to horizon
 time(0..horizon).
