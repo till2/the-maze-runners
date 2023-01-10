@@ -1,4 +1,4 @@
-% clingo mapf_problem.lp instance_test.lp
+% clingo solver.lp instance_test.lp 0
 
 %* authors *%
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
