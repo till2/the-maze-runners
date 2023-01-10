@@ -50,3 +50,5 @@ position(A,C,T) :- start(A,C), agent(A), time(T), T=1.                          
 #show time/1.
 #show move/4.
 #show position/3.
+
+
