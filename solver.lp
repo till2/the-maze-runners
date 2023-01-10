@@ -5,7 +5,8 @@
 % Till Zemann, 808255, till.zemann@uni-potsdam.de
 
 %#include "instance_test.lp".
-#include "instance_test_2Agents.lp".
+%#include "instance_test_2Agents.lp".
+#include "instance_test_2Agents_biggergrid.lp".
 
 % CONSTRAINTS:
 % we forbid edge and vertex conflicts (agents can't move to the same cell)
