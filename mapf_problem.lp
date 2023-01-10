@@ -1,8 +1,29 @@
+% clingo mapf_problem.lp instance_test.lp
+
 %* authors *%
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
 % Till Zemann, 808255, till.zemann@uni-potsdam.de
 
-#include "instance.lp"
+%#include "instance.lp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+vertex((1..2,1..2)).
+
+edge((1,1),(1,2)).
+edge((1,1),(2,1)).
+edge((1,2),(2,2)).
+edge((2,1),(2,2)).
+edge(X,Y) :- edge(Y,X).
+
+agent(a1).
+
+start(a1,(1,1)).
+goal(a1,(2,2)).
+
+spath(a1,(1,1),(1,2),1).
+spath(a1,(1,2),(2,2),2).
+
+#const horizon=3.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %:- use_module(library(instance.lp)).
 % forbid edge and vertex conflicts (agents can't move to the same cell)
