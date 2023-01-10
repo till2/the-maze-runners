@@ -23,7 +23,7 @@ position(A,C,T) :- start(A,C), agent(A), time(T), T=1.
 % vertex-conflict
 :- { position(A,C,T) : agent(A) } > 1, vertex(C), time(T).
 
-%test on goal position at end
+% test if the agent is 
 :- not position(A,C,horizon), goal(A,C).
 :- move(A,C,_,horizon), goal(A,C).
 
