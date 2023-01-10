@@ -4,26 +4,7 @@
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
 % Till Zemann, 808255, till.zemann@uni-potsdam.de
 
-%#include "instance.lp"
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-vertex((1..2,1..2)).
-
-edge((1,1),(1,2)).
-edge((1,1),(2,1)).
-edge((1,2),(2,2)).
-edge((2,1),(2,2)).
-edge(X,Y) :- edge(Y,X).
-
-agent(a1).
-
-start(a1,(1,1)).
-goal(a1,(2,2)).
-
-spath(a1,(1,1),(1,2),1).
-spath(a1,(1,2),(2,2),2).
-
-#const horizon=3.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#include "instance_test.lp".
 
 %:- use_module(library(instance.lp)).
 % forbid edge and vertex conflicts (agents can't move to the same cell)
@@ -37,11 +18,9 @@ time(1..horizon).
 
 position(A,C',T+1) :- move(A,C,C',T), time(T+1).
 position(A,C,T+1) :- not move(A,_,_,T), position(A,C,T), agent(A), time(T+1).
-position(A,C,T) :- start(A,C), agent(A), time(T), T=1.                                      %first position
+position(A,C,T) :- start(A,C), agent(A), time(T), T=1.
 
-% BIS HIER STIMMT ES (HOFFENTLICH)
-
-%vertex-conflict
+% vertex-conflict
 :- { position(A,C,T) : agent(A) } > 1, vertex(C), time(T).
 
 %test on goal position at end
@@ -51,5 +30,3 @@ position(A,C,T) :- start(A,C), agent(A), time(T), T=1.                          
 #show time/1.
 #show move/4.
 #show position/3.
-
-
