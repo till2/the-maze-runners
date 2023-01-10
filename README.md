@@ -1,6 +1,3 @@
-# the-maze-runners
-MAPF project with asp and pruning.
+# Project: MAPF with pruning in ASP
 
-Team members:
-- Till Zemann
-- Ben Kampmann
+Team: Ben Kampmann & Till Zemann
