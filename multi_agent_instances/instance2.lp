@@ -1,10 +1,4 @@
-vertex((1..6,1..6)).
-
-edge((1,1),(1,2)).
-edge((1,1),(2,1)).
-edge((1,2),(2,2)).
-edge((2,1),(2,2)).
-edge(X,Y) :- edge(Y,X).
+vertex((1..6,1..6)). % larger grid
 
 % generate all edges
 diff(X,Y) :- X=-1..1, Y=-1..1, |X+Y|=1.
@@ -18,7 +12,4 @@ agent(a2).
 start(a2,(1,2)).
 goal(a2,(2,1)).
 
-spath(a1,(1,1),(1,2),1).
-spath(a1,(1,2),(2,2),2).
-
-#const horizon=3.
+#const horizon=5.

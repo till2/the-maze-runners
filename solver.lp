@@ -1,12 +1,12 @@
-% clingo solver.lp instance_test.lp 0
+% clingo solver.lp -c horizon=2 0
 
 %* authors *%
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
 % Till Zemann, 808255, till.zemann@uni-potsdam.de
 
-%#include "instance_test.lp".
-%#include "instance_test_2Agents.lp".
-#include "instance_test_2Agents_biggergrid.lp".
+%#include "single_agent_instances/instance1.lp".
+#include "multi_agent_instances/instance1.lp".
+%#include "multi_agent_instances/instance2.lp".
 
 % CONSTRAINTS:
 % we forbid edge and vertex conflicts (agents can't move to the same cell)
@@ -15,7 +15,7 @@
 time(0..horizon).
 
 % generate all possible moves
-% move(agent, from_cell, to_cell, time) 
+% move(agent, from_cell, to_cell, time)
 % C and C' are tuples (X,Y)
 { move(A,C,C',T) : edge(C,C') } 1 :- agent(A), time(T), position(A,C,T).
 
@@ -30,6 +30,9 @@ position(A,C,T+1) :- not move(A,_,_,T), position(A,C,T), agent(A), time(T+1).
 
 % eliminate model if there are vertex-conflicts
 :- { position(A,C,T) : agent(A) } > 1, vertex(C), time(T).
+
+% eliminate model if there are swapping-conflicts
+:- move(A1,C1,C2,T), move(A2,C2,C1,T).
 
 % test if the agent is on the goal at the end
 :- not position(A,C,horizon), goal(A,C).
