@@ -4,8 +4,6 @@
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
 % Till Zemann, 808255, till.zemann@uni-potsdam.de
 
-% S is the number of steps from the start to a cell
-
 % include an instance
 #include "multi_agent_instances/instance1.lp".
 
