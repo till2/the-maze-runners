@@ -1,4 +1,4 @@
-% clingo solver.lp -c horizon=2 0
+% clingo solver.lp 0
 
 %* authors *%
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
@@ -6,11 +6,8 @@
 
 % S is the number of steps from the start to a cell
 
-
-%#include "pruning.lp".
-#include "single_agent_instances/instance1.lp".
-%#include "multi_agent_instances/instance2.lp".
-%#include "multi_agent_instances/instance2.lp".
+% include an instance
+#include "multi_agent_instances/instance1.lp".
 
 % CONFLICTS:
 % we forbid edge, vertex and swapping conflicts
@@ -48,5 +45,9 @@ position(A,C,T+1) :- not move(A,_,_,T), position(A,C,T), agent(A), time(T+1).
 distance_to_goal(A,C',D) :-  agent(A), goal(A,C), vertex(C), vertex(C'), C=(X,Y), C'= (X',Y'), D=|X'-X|+|Y'-Y|.
 :- horizon(X), time(T), distance_to_goal(A,C,D), position(A,C,T), X-T < D. % prune model if the goal is not reachable anymore
 
-#show move/4.
-%#show position/3.
+% convert "move" to "path" & "plan" as output
+path(A,C1,C2) :- move(A,C1,C2,T).
+plan(A,ACTION,T) :- move(A,C1,C2,T), C1=(X,Y), C2=(X',Y'), ACTION=(X'-X,Y'-Y).
+%#show move/4.
+#show path/3.
+#show plan/3.
