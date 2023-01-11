@@ -12,6 +12,8 @@
 % we forbid edge, vertex and swapping conflicts
 
 % Makespan is equal to horizon
+{horizon(1..100)}=1.
+#minimize{X : horizon(X)}.
 time(0..horizon).
 
 % generate all possible moves

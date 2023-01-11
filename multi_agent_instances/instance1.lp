@@ -12,4 +12,3 @@ agent(a2).
 start(a2,(1,2)).
 goal(a2,(1,1)).
 
-#const horizon=3.

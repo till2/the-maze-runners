@@ -10,5 +10,3 @@ goal(a1,(2,2)).
 
 spath(a1,(1,1),(1,2),1).
 spath(a1,(1,2),(2,2),2).
-
-#const horizon=2.
