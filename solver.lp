@@ -11,7 +11,7 @@
 % we forbid edge, vertex and swapping conflicts
 
 % Makespan = horizon - 1
-{horizon(0..100)}=1.
+{ horizon(0..100) }=1.
 time(0..X) :- horizon(X).
 #minimize{X : horizon(X)}.
 
