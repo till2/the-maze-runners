@@ -1,4 +1,5 @@
-% clingo solver.lp -c horizon=2 0
+% clingo solver.lp test_aspirilo_instance.lp -c horizon=2 0
+% clingo convert-m-to-mif.lp test_aspirilo_instance.lp | solver.lp -c horizon=2 0
 
 %* authors *%
 % Ben Kampmann, 803374, kampmann2@uni-potsdam.de
@@ -6,14 +7,11 @@
 
 % S is the number of steps from the start to a cell
 
-% include an instance
-#include "multi_agent_instances/instance2.lp".
-
 % CONFLICTS:
 % we forbid edge, vertex and swapping conflicts
 
 % Makespan = horizon - 1
-{horizon(0..100)}=1.
+{horizon(0..50)}=1. % check a defined range of possible horizons
 time(0..X) :- horizon(X).
 #minimize{X : horizon(X)}.
 
