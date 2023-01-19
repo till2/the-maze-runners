@@ -9,5 +9,5 @@
 ### How to run our solver
 
 ```bash
-clingo convert-m-to-mif.lp <instance.lp> | clingo solver.lp
+clingo solver.lp convert-m-to-mif.lp <instance.lp> 0
 ```
