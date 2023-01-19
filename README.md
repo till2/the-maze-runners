@@ -25,6 +25,8 @@ We only use instances from the "M" (movement-only) domain, which corresponds to 
 
 ![](images/fig1.png)
 
+The plot doesn't show an execution time for the last two instances on large grids (4x5x8), as we set a maximum Makespan of 50 in our solver and no solution could be found with a Makespan smaller or equal to 50.
+
 ### Appendix
 
 The randomly drawn instances used for the evaluation were:
